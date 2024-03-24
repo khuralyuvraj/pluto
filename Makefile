@@ -1,5 +1,5 @@
 
-lin:
+lin: pluto.cpp
 	g++ pluto.cpp -o pluto -lyaml-cpp
 
 clean:
