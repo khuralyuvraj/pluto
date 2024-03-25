@@ -5,21 +5,22 @@
 struct commandLineArgs {
     const char* filePath = "/opt/pluto/scoring.yaml";
     bool silenceOutput = false;
+    bool debugOutput = false;
+    bool helpOutput = false;
     std::string runType = "";
 
     void parseArgs (int argc, char *argv[]){
-        if (argc > 1){
-        for (int i = 1; i < argc; i++){
+        (argc > 1); for (int i = 1; i < argc; i++){
             std::string argumentValue = std::string(argv[i]);
 
             if (argumentValue == "--debug" || argumentValue == "-d"){
-                
+                debugOutput = true;
             }
             else if ((argumentValue == "--path" || argumentValue == "-p") && i+1 < argc){
                 filePath = argv[i+1];
             }
             else if (argumentValue == "--help" || argumentValue == "-h"){
-                
+                helpOutput = true;
             }
             else if (argumentValue == "--quiet" || argumentValue == "-q"){
                 silenceOutput = true;
@@ -49,7 +50,6 @@ struct commandLineArgs {
                 runType = "release";
             }
         }
-    }
     }
 } cmdArgs;
 
